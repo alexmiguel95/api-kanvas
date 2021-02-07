@@ -1,10 +1,9 @@
 from rest_framework import serializers
-from accounts.serializers import UserSerializer
+from accounts.models import User
 
 
 class ActivitiesSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField()
     repo = serializers.CharField()
-    grade = serializers.FloatField()
-    user_id = UserSerializer()
+    grade = serializers.IntegerField(read_only=True)
+    user_id = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())

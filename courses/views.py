@@ -46,7 +46,6 @@ class CourseView(APIView):
 
 class CourseUpdateView(APIView):
     permission_classes = [IsAuthenticated, InstructorOnly]
-    queryset = Course.objects.none()
     authentication_classes = [TokenAuthentication]
 
     def put(self, request):
