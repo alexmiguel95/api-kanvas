@@ -2,8 +2,10 @@
 
 |   Como utilizar o projeto	|   Tecnologias utilizadas	|
 |---	|---	|
-|1º Clone o projeto em um diretório de sua preferência. 
-2º  |  Python com _django_ e _djangorestframework_. 
+|1º Clone o projeto em um diretório de sua preferência. | Python com _django_ e _djangorestframework_. |
+|2º Instale todos a dependencias do projeto que estão listadas no arquivo _requirements.txt_. **pip install -r _requeriments.txt_** |
+|3º Agora é só rodar o servidor. Estando da raiz da aplicação digite: **./manage.py runserver**
+
 
 
 &nbsp; 
