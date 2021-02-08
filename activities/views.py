@@ -8,7 +8,6 @@ from .serializers import ActivitiesSerializer
 from .permissions import InstructorOrFacilitadorOnly
 from .models import Activity
 from accounts.models import User
-# import ipdb
 
 
 class ActivitiesView(APIView):
@@ -39,6 +38,31 @@ class ActivitiesView(APIView):
         serializer = ActivitiesSerializer(activity)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def get(self, request, user_id=""):
+        if request.user.is_staff:
+            # Filtrar por um aluno
+            if user_id:
+                activities = Activity.objects.filter(user_id=user_id)
+
+                if activities:
+                    serializer = ActivitiesSerializer(activities, many=True)
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+
+                return Response(
+                    {"detail": "Invalid user_id."},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            # Rotornar todas as atividades de todos os alunos
+            activities = Activity.objects.all()
+            serializer = ActivitiesSerializer(activities, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        # Pegar todas as atividades do aluno
+        activities = Activity.objects.filter(user_id=request.user.pk)
+        serializer = ActivitiesSerializer(activities, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request):
         id = request.data.get('id')
