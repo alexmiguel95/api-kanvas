@@ -2,7 +2,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
 from .models import Course
 from accounts.models import User
 from .serializers import CourseSerializer
@@ -12,7 +11,6 @@ from .permissions import InstructorOnly
 
 class CourseView(APIView):
     permission_classes = [InstructorOnly]
-    # queryset = Course.objects.none()
     authentication_classes = [TokenAuthentication]
 
     """ Criar um novo curso."""
@@ -45,7 +43,7 @@ class CourseView(APIView):
 
 
 class CourseUpdateView(APIView):
-    permission_classes = [IsAuthenticated, InstructorOnly]
+    permission_classes = [InstructorOnly]
     authentication_classes = [TokenAuthentication]
 
     def put(self, request):

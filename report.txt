@@ -14,20 +14,12 @@ test_student_cannot_assign_grade (test_api.TestActivityView) ... ok
 test_anonymous_can_list_courses (test_api.TestCourseView) ... ok
 test_facilitator_or_student_cannot_create_course (test_api.TestCourseView) ... ok
 test_instructor_can_create_course (test_api.TestCourseView) ... ok
-test_instructor_can_register_students_on_course (test_api.TestCourseView) ... ERROR
-
-======================================================================
-ERROR: test_instructor_can_register_students_on_course (test_api.TestCourseView)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/home/alex/Documents/projects/python/django/kanvas/test_api.py", line 565, in test_instructor_can_register_students_on_course
-    self.assertEqual(len(response['user_set']), 2)
-KeyError: 'user_set'
+test_instructor_can_register_students_on_course (test_api.TestCourseView) ... ok
 
 ----------------------------------------------------------------------
-Ran 14 tests in 5.059s
+Ran 14 tests in 4.963s
 
-FAILED (errors=1)
+OK
 Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
 Operations to perform:
   Synchronize unmigrated apps: messages, rest_framework, staticfiles

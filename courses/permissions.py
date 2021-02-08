@@ -6,5 +6,5 @@ class InstructorOnly(BasePermission):
         if request.method == "GET":
             return True
 
-        if request.method == "POST":
+        if request.method == "POST" or request.method == "PUT":
             return request.user.is_superuser
