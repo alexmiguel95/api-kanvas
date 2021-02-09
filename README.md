@@ -4,7 +4,9 @@
 |---	|---	|
 |1º Clone o projeto em um diretório de sua preferência. | Python com _django_ e _djangorestframework_. |
 |2º Instale todos a dependencias do projeto que estão listadas no arquivo _requirements.txt_. **pip install -r _requeriments.txt_** |
-|3º Agora é só rodar o servidor. Estando da raiz da aplicação digite: **./manage.py runserver**
+|3º configure as informações de acesso ao DATABASES no arquivo _settings.py_|
+|4º Execute o comando **./manage.py migrate** para criar todas as tabelas |
+|5º Agora é só rodar o servidor. Estando da raiz da aplicação digite: **./manage.py runserver**
 
 
 

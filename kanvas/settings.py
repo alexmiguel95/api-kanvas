@@ -87,7 +87,7 @@ DATABASES = {
       'ENGINE': 'django.db.backends.postgresql_psycopg2',
       'NAME': os.environ.get('DB_NAME', 'kanvas'),
       'USER': os.environ.get('DB_USER', 'admin'),
-      'PASSWORD': os.environ.get('DB_PASS', '98769061'),
+      'PASSWORD': os.environ.get('DB_PASS', '123456'),
       'HOST': 'localhost',
       'PORT': '5432',
   }
